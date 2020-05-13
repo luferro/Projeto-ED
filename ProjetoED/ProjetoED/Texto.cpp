@@ -3,7 +3,7 @@
 
 extern void AddHASHING(Hashing* H, LIVRO* X);
 extern void AddLista(LISTA* L, void* EL);
-extern LIVRO* CriarLivro(const char* area, const char* isbn, const char* titulo, const char* autor, const char* ano, const char* n_req);
+extern LIVRO* CriarLivro(const char* area, const char* isbn, const char* titulo, const char* autor, const char* ano);
 extern REQUISITANTE* CriarRequisitante(const char* id_requisitante, const char* requisitante, const char* data_nasc);
 //-------------------------------
 char** SepararCampos(char* linha, int n_campos, const char* separadores) 
@@ -69,7 +69,7 @@ void CarregarLivros(Hashing* Biblioteca)
 		char** v = SepararCampos(linha, 20, ";");
 
 		if (v) {
-			AddHASHING(Biblioteca, CriarLivro(v[1], v[10], v[11], v[2], v[0], "0"));
+			AddHASHING(Biblioteca, CriarLivro(v[1], v[10], v[11], v[2], v[0]));
 		}
 	}
 	fclose(fich_livros);

@@ -9,7 +9,7 @@ extern void AddHASHING(Hashing* H, LIVRO* X);
 extern void MostrarHASHING(Hashing* H);
 extern void DestruirHASHING(Hashing* H);
 
-extern LIVRO* CriarLivro(const char* area, const char* isbn, const char* titulo, const char* autor, const char* ano, const char* n_req);
+extern LIVRO* CriarLivro(const char* area, const char* isbn, const char* titulo, const char* autor, const char* ano);
 extern void CarregarLivros(Hashing* Biblioteca);
 extern void OrganizarLivros();
 extern void PesquisarLivros(Hashing* H, const char* parametro);
@@ -17,6 +17,9 @@ extern void PesquisarLivroMaisRequisitado(Hashing* H);
 extern void PesquisarAreaMaisRequisitada(Hashing* H);
 extern void PesquisarAreaMenosRequisitada(Hashing* H);
 extern void AreaComMaisLivros(Hashing* H);
+extern void Requisitar(Hashing* H, const char* parametro);
+extern void Devolver(Hashing* H, const char* parametro);
+extern void MostrarLivrosRequisitados(Hashing* H);
 
 extern LISTA* CriarLISTA();
 extern void MostrarLISTA(LISTA* L, void (*func)(void*));
@@ -146,7 +149,7 @@ int main()
                     char area[50];
                     printf("Em que área se insere o livro a adicionar? ");  //falta os outros dados, mas a ideia é esta
                     scanf("%s", area);
-                    AddHASHING(Biblioteca, CriarLivro(area, o, o, o, o, "5"));
+                    AddHASHING(Biblioteca, CriarLivro(area, o, o, o, o));
                     break;
                 case 2: 
                     MostrarHASHING(Biblioteca); 
@@ -222,13 +225,21 @@ int main()
                 int opRequisicoes = GestaoRequisicoes();
                 switch (opRequisicoes)
                 {
-                case 1: break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
+                case 1: 
+                    char livro_a_requisitar[100];
+                    printf("Introduza o nome do livro que deseja requisitar: ");
+                    scanf(" %[^\n]", livro_a_requisitar);
+                    Requisitar(Biblioteca, livro_a_requisitar);
+                    break;
+                case 2: 
+                    char livro_a_devolver[100];
+                    printf("Introduza o nome do livro que deseja devolver: ");
+                    scanf(" %[^\n]", livro_a_devolver);
+                    Devolver(Biblioteca, livro_a_devolver);
+                    break;
+                case 3: 
+                    MostrarLivrosRequisitados(Biblioteca);
+                    break;
                 case 0:
                     MenuRequisicoes = false;
                     break;

@@ -14,6 +14,9 @@ extern int GetRequisicoesLivros(void* P);
 
 extern void MostrarLivro(void* P);
 extern void ProcurarLivro(void* P, const char* parametro);
+extern void RequisitarLivro(void* P, const char* parametro);
+extern void DevolverLivro(void* P, const char* parametro);
+extern void MostrarRequisicoes(void* P);
 extern void ProcurarLivroMaisRequisitado(LISTA* L, void (*func)(void*, int), int parametro);
 extern void MostrarLivroMaisRequisitado(void* P, int parametro);
 extern void DestruirLIVRO(void* P);
@@ -102,6 +105,40 @@ void PesquisarLivros(Hashing* H, const char* parametro)
     {
         printf("[%s]\n", P->CHAVE);
         ProcurarLISTA(P->LLivros, ProcurarLivro, parametro);
+        P = P->Prox_Chave;
+    }
+}
+//-------------------------------
+void Requisitar(Hashing* H, const char* parametro)
+{
+    if (!H) return;
+    NO_HAS* P = H->Inicio;
+    while (P)
+    {
+        ProcurarLISTA(P->LLivros, RequisitarLivro, parametro);
+        P = P->Prox_Chave;
+    }
+}
+//-------------------------------
+void Devolver(Hashing* H, const char* parametro)
+{
+    if (!H) return;
+    NO_HAS* P = H->Inicio;
+    while (P)
+    {
+        ProcurarLISTA(P->LLivros, DevolverLivro, parametro);
+        P = P->Prox_Chave;
+    }
+}
+//-------------------------------
+void MostrarLivrosRequisitados(Hashing* H)
+{
+    if (!H) return;
+    NO_HAS* P = H->Inicio;
+    while (P)
+    {
+        printf("[%s]\n", P->CHAVE);
+        MostrarLISTA(P->LLivros, MostrarRequisicoes);
         P = P->Prox_Chave;
     }
 }

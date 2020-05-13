@@ -11,8 +11,8 @@ typedef struct
     char AUTOR[50];
     char AREA[50];
     char ANO[50];
-    char N_REQ[50];
-    //int N_REQ;
+    char ESTADO_REQ[15];
+    int N_REQ;
 }LIVRO;
 
 #endif // LIVRO_H_INCLUDED
