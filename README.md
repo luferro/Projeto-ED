@@ -4,9 +4,6 @@ FALTA:
   - Validar campos do ficheiro Requisitantes.txt
   - Carregar Freguesias, Concelhos e Distritos
   
-  - Gestão de Livros
-    - Determinar Livros Mais Recentes
-    
   - Gestão de Requisitantes
     - Determinar Idade máxima
     - Determinar Idade média 
