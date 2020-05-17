@@ -32,6 +32,25 @@ void MostrarLivroMaisRequisitado(void* P, int parametro)
     }
 }
 //-------------------------------
+void MostrarLivroMaisRecente(void* P, int parametro)
+{
+    LIVRO* X = (LIVRO*)P;
+
+    char* str = X->ANO;
+    int ano = 0;
+
+    char* last = strrchr(str, '/');
+    if (last != NULL) {
+        ano = atoi(last + 1);
+    }
+
+    if (ano == parametro)
+    {
+        printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+        printf("No ano 20%d!\n", ano);
+    }
+}
+//-------------------------------
 void ProcurarLivro(void* P, const char* parametro)
 {
     LIVRO* X = (LIVRO*)P;
@@ -41,6 +60,21 @@ void ProcurarLivro(void* P, const char* parametro)
         printf("Encontrei\n");
         printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
     }
+}
+//-------------------------------
+int GetLivrosMaisRecentes(void* P)
+{
+    LIVRO* X = (LIVRO*)P;
+
+    char* str = X->ANO;
+    int ano = 0;
+
+    char* last = strrchr(str, '/');
+    if (last != NULL) {
+        ano = atoi(last + 1);
+    }
+
+    return ano;
 }
 //-------------------------------
 int GetRequisicoesLivros(void* P)

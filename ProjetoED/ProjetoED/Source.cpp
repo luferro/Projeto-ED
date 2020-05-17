@@ -30,6 +30,8 @@ extern void CarregarRequisitantes(LISTA* Requisitantes);
 extern void MostrarRequisitante(void* P);
 extern void ProcurarRequisitante(void* P, const char* parametro);
 
+extern void MostrarLivrosMaisRecentes(Hashing* H);
+
 //---------------------------------
 int menuGestao()
 {
@@ -165,6 +167,7 @@ int main()
                     break;
                 case 5: 
                     //Falta pesquisar livros mais recentes
+                    MostrarLivrosMaisRecentes(Biblioteca);
                     break;
                 case 6: 
                     PesquisarLivroMaisRequisitado(Biblioteca);

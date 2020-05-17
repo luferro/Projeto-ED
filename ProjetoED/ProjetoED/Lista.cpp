@@ -41,7 +41,7 @@ void ProcurarLISTA(LISTA* L, void (*func)(void*, const char*), const char* param
     }
 }
 //-------------------------------
-void ProcurarLivroMaisRequisitado(LISTA* L, void (*func)(void*, int), int parametro)
+void ProcurarLivroMaisRequisitadoRecente(LISTA* L, void (*func)(void*, int), int parametro)
 {
     if (!L) return;
     NO* P = L->Inicio;
@@ -66,12 +66,27 @@ int GetRequisicoesArea(LISTA* L, int (*func)(void*))
     return maior_req;
 }
 //-------------------------------
+int GetListaLivrosMaisRecentes(LISTA* L, int (*func)(void*))
+{
+    if (!L) return 0;
+    int mais_recentes = 0, tmp = 0;
+    NO* P = L->Inicio;
+    while (P)
+    {
+        tmp = (*func)(P->INFO);
+        if (tmp > mais_recentes) {
+            mais_recentes = tmp;
+        }
+        P = P->PROX;
+    }
+    return mais_recentes;
+}
+//-------------------------------
 int GetRequisicoesLivroMaisRequisitado(LISTA* L, int (*func)(void*))
 {
     if (!L) return 0;
     int maior_req = 0, tmp = 0;
     NO* P = L->Inicio;
-    void* teste = NULL;
     while (P)
     {
         tmp = (*func)(P->INFO);

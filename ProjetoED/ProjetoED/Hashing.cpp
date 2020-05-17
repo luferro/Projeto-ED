@@ -11,13 +11,16 @@ extern void DestruirLISTA(LISTA* L, void (*func)(void*));
 extern int GetRequisicoesArea(LISTA* L, int (*func)(void*));
 extern int GetRequisicoesLivroMaisRequisitado(LISTA* L, int (*func)(void*));
 extern int GetRequisicoesLivros(void* P);
+extern int GetLivrosMaisRecentes(void* P);
+extern int GetListaLivrosMaisRecentes(LISTA* L, int (*func)(void*));
 
 extern void MostrarLivro(void* P);
 extern void ProcurarLivro(void* P, const char* parametro);
 extern void RequisitarLivro(void* P, const char* parametro);
 extern void DevolverLivro(void* P, const char* parametro);
 extern void MostrarRequisicoes(void* P);
-extern void ProcurarLivroMaisRequisitado(LISTA* L, void (*func)(void*, int), int parametro);
+extern void ProcurarLivroMaisRequisitadoRecente(LISTA* L, void (*func)(void*, int), int parametro);
+extern void MostrarLivroMaisRecente(void* P, int parametro);
 extern void MostrarLivroMaisRequisitado(void* P, int parametro);
 extern void DestruirLIVRO(void* P);
 
@@ -143,11 +146,26 @@ void MostrarLivrosRequisitados(Hashing* H)
     }
 }
 //-------------------------------
+void MostrarLivrosMaisRecentes(Hashing* H)
+{
+    if (!H) return;
+    int tmp, mais_recente = 0;
+    NO_HAS* P = H->Inicio;
+    while (P)
+    {
+        printf("[%s]\n", P->CHAVE);
+        tmp = GetListaLivrosMaisRecentes(P->LLivros, GetLivrosMaisRecentes);
+        if (tmp > mais_recente) {
+            mais_recente = tmp;
+        }else ProcurarLivroMaisRequisitadoRecente(P->LLivros, MostrarLivroMaisRecente, mais_recente);
+        P = P->Prox_Chave;
+    }
+}
+//-------------------------------
 void PesquisarLivroMaisRequisitado(Hashing* H)
 {
     if (!H) return;
     int tmp, maior_req_todos = 0;
-    void* teste = NULL;
     NO_HAS* P = H->Inicio;
     while (P)
     {
@@ -155,7 +173,7 @@ void PesquisarLivroMaisRequisitado(Hashing* H)
         tmp = GetRequisicoesLivroMaisRequisitado(P->LLivros, GetRequisicoesLivros);
         if (tmp > maior_req_todos) {
             maior_req_todos = tmp;
-            ProcurarLivroMaisRequisitado(P->LLivros, MostrarLivroMaisRequisitado, maior_req_todos);
+            ProcurarLivroMaisRequisitadoRecente(P->LLivros, MostrarLivroMaisRequisitado, maior_req_todos);
         }
         P = P->Prox_Chave;
     }
