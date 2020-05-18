@@ -149,11 +149,10 @@ void MostrarLivrosRequisitados(Hashing* H)
 void MostrarLivrosMaisRecentes(Hashing* H)
 {
     if (!H) return;
-    int tmp, mais_recente = 0;
+    int tmp = 0, mais_recente = 0;
     NO_HAS* P = H->Inicio;
     while (P)
     {
-        printf("[%s]\n", P->CHAVE);
         tmp = GetListaLivrosMaisRecentes(P->LLivros, GetLivrosMaisRecentes);
         if (tmp > mais_recente) {
             mais_recente = tmp;

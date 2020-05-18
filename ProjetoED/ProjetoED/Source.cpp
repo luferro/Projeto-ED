@@ -29,8 +29,14 @@ extern REQUISITANTE* CriarRequisitante(const char* id_requisitante, const char* 
 extern void CarregarRequisitantes(LISTA* Requisitantes);
 extern void MostrarRequisitante(void* P);
 extern void ProcurarRequisitante(void* P, const char* parametro);
-
+extern void MostrarIdadeMaxima(LISTA* L, int (*func)(void*));
+extern int GetIdadeRequisitantes(void* P);
+extern void MostrarIdadeMedia(LISTA* L, int (*func)(void*));
+extern void MostrarIdadeSuperiorX(LISTA* L, int (*func)(void*), int parametro);
+extern void MostrarIdadeMaisComum(LISTA* L, int (*func)(void*));
 extern void MostrarLivrosMaisRecentes(Hashing* H);
+extern void MostrarSobrenomeMaisComum(LISTA* L, char* (*func)(void*));
+extern char* GetSobrenomeRequisitantes(void* P);
 
 //---------------------------------
 int menuGestao()
@@ -166,7 +172,6 @@ int main()
                     PesquisarLivros(Biblioteca, isbn);
                     break;
                 case 5: 
-                    //Falta pesquisar livros mais recentes
                     MostrarLivrosMaisRecentes(Biblioteca);
                     break;
                 case 6: 
@@ -204,17 +209,38 @@ int main()
                     ProcurarLISTA(Requisitantes, ProcurarRequisitante, nome_req);
                     break;
                 case 3: 
-                    MostrarLISTA(Requisitantes, MostrarRequisitante);
+                    MostrarLISTA(Requisitantes, MostrarRequisitante);   //Falta métodos de ordenação
                     break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
-                case 8: break;
-                case 9: break;
-                case 10: break;
-                case 11: break;
-                case 12: break;
+                case 4: 
+                    MostrarIdadeMaxima(Requisitantes, GetIdadeRequisitantes);
+                    break;
+                case 5: 
+                    MostrarIdadeMedia(Requisitantes, GetIdadeRequisitantes);
+                    break;
+                case 6: 
+                    int idade_x;
+                    printf("Introduza a idade que deseja: ");
+                    scanf(" %d", &idade_x);
+                    MostrarIdadeSuperiorX(Requisitantes, GetIdadeRequisitantes, idade_x);
+                    break;
+                case 7: 
+                    MostrarIdadeMaisComum(Requisitantes, GetIdadeRequisitantes);
+                    break;
+                case 8: 
+                    
+                    break;
+                case 9: 
+                    
+                    break;
+                case 10: 
+                    
+                    break;
+                case 11: 
+                    MostrarSobrenomeMaisComum(Requisitantes, GetSobrenomeRequisitantes);
+                    break;
+                case 12: 
+                    
+                    break;
                 case 0:
                     MenuRequisitantes = false;
                     break;
@@ -232,7 +258,7 @@ int main()
                     char livro_a_requisitar[100];
                     printf("Introduza o nome do livro que deseja requisitar: ");
                     scanf(" %[^\n]", livro_a_requisitar);
-                    Requisitar(Biblioteca, livro_a_requisitar);
+                    Requisitar(Biblioteca, livro_a_requisitar);     //Falta associar a um requisitante
                     break;
                 case 2: 
                     char livro_a_devolver[100];
@@ -249,8 +275,12 @@ int main()
                 }
             }
             break;
-        case 4: break;
-        case 5: break;
+        case 4: 
+            
+            break;
+        case 5: 
+            
+            break;
         case 0: MenuP = false;
         }
     }

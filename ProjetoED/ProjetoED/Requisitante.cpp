@@ -28,20 +28,33 @@ void ProcurarRequisitante(void* P, const char* parametro)
 int GetIdadeRequisitantes(void* P)
 {
     REQUISITANTE* X = (REQUISITANTE*)P;
-    char* dia, *mes, *ano;
-    char* data = X->DATA_NASC;
-    int idade = 0, ano_nasc;
-
-    dia = strtok(data, "-");
-    mes = strtok(data, "-");
-    ano = strtok(NULL, "-");
-
-    ano_nasc = atoi(ano);
-
-    //something
-    idade = 2020 - ano_nasc;
     
+    char* str = X->DATA_NASC;
+    int ano = 0, idade = 0;
+
+    char* last = strrchr(str, '-');
+    if (last != NULL) {
+        ano = atoi(last + 1);
+    }  
+
+    idade = 2020 - ano;
+
     return idade;
+}
+//-------------------------------
+char* GetSobrenomeRequisitantes(void* P)
+{
+    REQUISITANTE* X = (REQUISITANTE*)P;
+
+    char* str = X->REQUISITANTE;
+    char* sobrenome = NULL;
+
+    char* last = strrchr(str, ' ');
+    if (last != NULL) {
+        sobrenome = last + 1;
+    }
+
+    return sobrenome;
 }
 //-------------------------------
 void DestruirREQUISITANTE(void* P)
