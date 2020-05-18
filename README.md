@@ -8,7 +8,6 @@ FALTA:
     - Mostrar Requisições de um dado requisitante
     - Devolver uma lista das pessoas que nunca requisitaram nada
     - Mostrar os requisitantes têm livros requisitados
-    - Determinar o sobrenome mais usado pelos requisitantes
     - Determinar o número de pessoas de um dado Distrito (ou Concelho), cujo nome contém um determinado apelido/nome
     
   - Gestão de Requisições
