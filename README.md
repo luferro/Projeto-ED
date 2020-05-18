@@ -5,10 +5,6 @@ FALTA:
   - Carregar Freguesias, Concelhos e Distritos
   
   - Gestão de Requisitantes
-    - Determinar Idade máxima
-    - Determinar Idade média 
-    - Contar número de pessoas cuja idade é superior a X
-    - Determinar Idade com mais requisitantes
     - Mostrar Requisições de um dado requisitante
     - Devolver uma lista das pessoas que nunca requisitaram nada
     - Mostrar os requisitantes têm livros requisitados
