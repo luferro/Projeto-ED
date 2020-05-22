@@ -5,7 +5,6 @@ FALTA:
   
   - Gestão de Requisitantes
     - Mostrar Requisições de um dado requisitante
-    - Devolver uma lista das pessoas que nunca requisitaram nada
     - Mostrar os requisitantes têm livros requisitados
     
   - Determinar a memória ocupada por toda a Estrutura de Dados
