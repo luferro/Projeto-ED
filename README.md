@@ -5,6 +5,6 @@ FALTA:
   
   - Ordenação de listagem de requisitantes
   
-  - Requisitar Livros por IDs, em alternativa ao uso do nome completo
+  - Requisitar Livros por IDs, em alternativa ao uso do nome completo (Opcional)
     
   - Determinar a memória ocupada por toda a Estrutura de Dados
