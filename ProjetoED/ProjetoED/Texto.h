@@ -3,6 +3,7 @@
 
 #include "Livro.h"
 #include "Requisitante.h"
+#include "Requisicao.h"
 #include "Lista.h"
 #include "Hashing.h"
 

@@ -36,6 +36,15 @@
     <ClCompile Include="Freguesia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Distrito.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Concelho.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Requisicao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hashing.h">
@@ -54,6 +63,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Freguesia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Distrito.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Concelho.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Requisicao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

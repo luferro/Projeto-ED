@@ -6,11 +6,11 @@
 
 typedef struct
 {
-    char ISBN[50];
-    char TITULO[50];
-    char AUTOR[50];
-    char AREA[50];
-    char ANO[50];
+    char* ISBN;
+    char* TITULO;
+    char* AUTOR;
+    char* AREA;
+    char* ANO;
     char ESTADO_REQ[15];
     int N_REQ;
 }LIVRO;

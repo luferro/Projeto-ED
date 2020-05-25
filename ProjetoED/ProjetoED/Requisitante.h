@@ -6,9 +6,12 @@
 
 typedef struct
 {
-    char ID_REQUISITANTE[50];
-    char REQUISITANTE[100];
-    char DATA_NASC[50];
+    char* ID_REQUISITANTE;
+    char* REQUISITANTE;
+    char* DATA_NASC;
+    char ID_FREGUESIA[7];
+    int JA_REQUISITOU;
+    int TEM_REQUISICAO;
 }REQUISITANTE;
 
 #endif // REQUISITANTE_H_INCLUDED

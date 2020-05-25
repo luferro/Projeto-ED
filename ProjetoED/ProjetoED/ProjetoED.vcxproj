@@ -139,19 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Concelho.cpp" />
+    <ClCompile Include="Distrito.cpp" />
     <ClCompile Include="Freguesia.cpp" />
     <ClCompile Include="Hashing.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Livro.cpp" />
+    <ClCompile Include="Requisicao.cpp" />
     <ClCompile Include="Requisitante.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Texto.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Concelho.h" />
+    <ClInclude Include="Distrito.h" />
     <ClInclude Include="Freguesia.h" />
     <ClInclude Include="Hashing.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Livro.h" />
+    <ClInclude Include="Requisicao.h" />
     <ClInclude Include="Requisitante.h" />
     <ClInclude Include="Texto.h" />
   </ItemGroup>
