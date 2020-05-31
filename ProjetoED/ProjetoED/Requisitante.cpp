@@ -41,7 +41,7 @@ REQUISITANTE* CriarRequisitante_Sessao(const char* id_requisitante, const char* 
 void MostrarRequisitante(void* P)
 {
     REQUISITANTE* X = (REQUISITANTE*)P;
-    printf("REQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+    printf("REQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
 }
 //-------------------------------
 void MostrarRequisitanteOrdernadoFreg(void* P, const char* parametro)
@@ -50,7 +50,7 @@ void MostrarRequisitanteOrdernadoFreg(void* P, const char* parametro)
 
     if (strstr(X->ID_FREGUESIA, parametro) != NULL) 
     {
-        printf("REQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+        printf("REQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
     }
 }
 //-------------------------------
@@ -69,14 +69,14 @@ void MostrarRequisitanteOrdernadoApelido(void* P, const char* parametro)
      
     if (strstr(sobrenome, parametro) != NULL)
     {
-        printf("REQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+        printf("REQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
     }
 }
 //-------------------------------
 void GravarRequisitante(void* P, FILE* F)
 {
     REQUISITANTE* X = (REQUISITANTE*)P;
-    fprintf(F, "\t\t\tREQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+    fprintf(F, "\t\t\tREQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
 }
 //-------------------------------
 void GravarRequisitante_Sessao(void* P, FILE* F)
@@ -92,7 +92,7 @@ void ProcurarRequisitante(void* P, const char* parametro)
     //Compara o nome do requisitante com o parametro de entrada, verificando se o nome do requisitante contém o nome presente no parametro de entrada
     if (strstr(X->REQUISITANTE, parametro) != NULL)
     {
-        printf("REQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+        printf("REQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
     }
 }
 //-------------------------------
@@ -128,7 +128,7 @@ void GetTemRequisicoes(void* P)
     //Compara o nome do requisitante com o parametro de entrada, verificando se o nome do requisitante contém o nome presente no parametro de entrada
     if (X->TEM_REQUISICAO > 0)
     {
-        printf("REQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+        printf("REQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
     }
 }
 //-------------------------------
@@ -231,7 +231,7 @@ void GetNuncaRequisitou(void* P)
 
     //Verifica o estado de requisição do requisitante
     if (X->JA_REQUISITOU == 0) {
-        printf("REQUISITANTE (%s, %s, %s, %s, %d livros)\n", X->ID_REQUISITANTE, X->ID_FREGUESIA, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO);
+        printf("REQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
     }
 }
 //-------------------------------

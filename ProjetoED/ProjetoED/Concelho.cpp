@@ -29,13 +29,13 @@ CONCELHO* CriarConcelho(const char* id_concelho, const char* concelho)
 void MostrarConcelho(void* P)
 {
     CONCELHO* X = (CONCELHO*)P;
-    printf("CONCELHO (%s, %s, %s)\n", X->ID_CONCELHO, X->ID_DISTRITO, X->NOME_CONCELHO);
+    printf("CONCELHO: %s\t%s\t%s\n", X->ID_CONCELHO, X->ID_DISTRITO, X->NOME_CONCELHO);
 }
 //-------------------------------
 void GravarConcelho(void* P, FILE* F)
 {
     CONCELHO* X = (CONCELHO*)P;
-    fprintf(F, "\t\t\tCONCELHO (%s, %s, %s)\n", X->ID_CONCELHO, X->ID_DISTRITO, X->NOME_CONCELHO);
+    fprintf(F, "\t\t\tCONCELHO: %s\t%s\t%s\n", X->ID_CONCELHO, X->ID_DISTRITO, X->NOME_CONCELHO);
 }
 //-------------------------------
 void GravarConcelho_Sessao(void* P, FILE* F)

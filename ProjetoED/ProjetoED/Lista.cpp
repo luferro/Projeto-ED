@@ -383,6 +383,23 @@ void SortLISTA(LISTA* L, char* (*func1)(void*), void (*func2)(void*, const char*
     free(array);
 }
 //-------------------------------
+int MemoriaLista(LISTA* L) 
+{
+    if (!L) return 0;
+
+    int Mem = 0;
+    Mem += sizeof(*L);
+
+    NO* P = L->Inicio;
+    while (P)
+    {
+        Mem += sizeof(*P);
+        Mem += sizeof(P->INFO);
+        P = P->PROX;
+    }
+    return Mem;
+}
+//-------------------------------
 void DestruirLISTA(LISTA* L, void (*func)(void*))
 {
     if (!L) return;

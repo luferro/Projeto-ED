@@ -57,12 +57,12 @@ void OrganizarLivros()
 {
 	FILE* fich_livros = fopen("Ficheiros/Livro de registo Biblioteca.csv", "r");
 	FILE* fich_livros_organizado = fopen("Ficheiros/Livros_Organizados.txt", "w");
-	FILE* logs = fopen("Ficheiros/logs.txt", "a+");
+	FILE* logs = fopen("Ficheiros/logs_livros.txt", "a+");
 	if (!fich_livros) return;
 	char linha[400];
 	char copia[400];
 	while (fgets(linha, sizeof(linha), fich_livros) != NULL) {
-		if (strstr(linha, "----------") || strstr(linha, ";;;") || strstr(linha, "Dep.")) {
+		if (strstr(linha, "----------") /*|| strstr(linha, ";;;") */|| strstr(linha, "Dep.")) {
 			fputs("\nRegisto de Livro inválido\n", logs);
 			fputs(linha, logs);
 		}
@@ -95,10 +95,6 @@ void CarregarLivros(Hashing* Biblioteca, const char* nome_fich)
 		}
 	}
 	fclose(fich_livros);
-}
-//-------------------------------
-void OrganizarRequisitantes() {
-	//Validar os campos
 }
 //-------------------------------
 void CarregarFreguesias(LISTA* Freguesias, const char* nome_fich)
@@ -162,6 +158,62 @@ void CarregarDistritos(LISTA* Distritos, const char* nome_fich)
 		}
 	}
 	fclose(fich_distritos);
+}
+//-------------------------------
+void OrganizarRequisitantes() {
+	FILE* fich_requisitantes = fopen("Ficheiros/Requisitantes.txt", "r");
+	FILE* fich_requisitantes_organizado = fopen("Ficheiros/Requisitantes_Organizados.txt", "w");
+	FILE* logs = fopen("Ficheiros/logs.txt", "a+");
+	if (!fich_requisitantes) return;
+	char linha[400];
+	char linha_separar[400];
+	char copia[400];
+	while (fgets(linha, sizeof(linha), fich_requisitantes) != NULL) {
+
+		strcpy(linha_separar, linha);
+
+		char** v = SepararCampos(linha_separar, 4, "\t");
+
+		int sum_id = atoi(v[0]), resto = 0, sum = 0;
+
+		//Soma os algarismos do id requisitante
+		while (sum_id > 0)
+		{
+			resto = sum_id % 10;
+			sum = sum + resto;
+			sum_id = sum_id / 10;
+		}
+		//Validar id requisitante e data de nascimento
+		if (strlen(v[0]) != 9 || sum % 10 || strstr(v[2], "/") || strlen(v[3]) != 7) {
+			//Se id requisitante não tiver 9 algarismos
+			if (strlen(v[0]) != 9) {
+				fputs("\nID de requisitante inválido\n", logs);
+				fputs(linha, logs);
+			}
+			//Se a soma dos algarismos do id requisitante não for múltiplo de 10
+			if (sum % 10) {
+				fputs("\nSomátorio dos 9 algarismos não é múltiplo de 10\n", logs);
+				fputs(linha, logs);
+			}
+			//Se data não tiver no formato necessário, dd-mm-yyyy
+			if (strstr(v[2], "/")) {
+				fputs("\nFormato de data inválido\n", logs);
+				fputs(linha, logs);
+			}
+			//Se id freguesia não tiver 6 caracteres
+			if (strlen(v[3]) != 7) {
+				fputs("\nID de freguesia inválido\n", logs);
+				fputs(linha, logs);
+			}
+		}
+		else {
+			strcpy(copia, linha);
+			fputs(copia, fich_requisitantes_organizado);
+		}
+	}
+	fclose(fich_requisitantes);
+	fclose(fich_requisitantes_organizado);
+	fclose(logs);
 }
 //-------------------------------
 void CarregarRequisitantes(LISTA* Requisitantes, const char* nome_fich)

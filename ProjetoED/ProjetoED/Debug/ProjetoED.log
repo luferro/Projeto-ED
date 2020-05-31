@@ -1,7 +1,9 @@
-﻿  Hashing.cpp
-  Lista.cpp
+﻿  Concelho.cpp
+  Distrito.cpp
+  Freguesia.cpp
   Livro.cpp
-  Requisitante.cpp
+  Requisicao.cpp
   Source.cpp
   Generating Code...
+C:\Users\Adm\Desktop\ProjetoED\ProjetoED\Distrito.cpp(46): warning C4715: 'GetDistritos': not all control paths return a value
   ProjetoED.vcxproj -> C:\Users\Adm\Desktop\ProjetoED\Debug\ProjetoED.exe

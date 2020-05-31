@@ -29,13 +29,13 @@ FREGUESIA* CriarFreguesia(const char* id_freguesia, const char* freguesia)
 void MostrarFreguesia(void* P)
 {
     FREGUESIA* X = (FREGUESIA*)P;
-    printf("FREGUESIA (%s, %s, %s)\n", X->ID_FREGUESIA, X->ID_CONCELHO, X->NOME_FREGUESIA);
+    printf("FREGUESIA: %s\t%s\t%s\n", X->ID_FREGUESIA, X->ID_CONCELHO, X->NOME_FREGUESIA);
 }
 //-------------------------------
 void GravarFreguesia(void* P, FILE* F)
 {
     FREGUESIA* X = (FREGUESIA*)P;
-    fprintf(F, "\t\t\tFREGUESIA (%s, %s, %s)\n", X->ID_FREGUESIA, X->ID_CONCELHO, X->NOME_FREGUESIA);
+    fprintf(F, "\t\t\tFREGUESIA: %s\t%s\t%s\n", X->ID_FREGUESIA, X->ID_CONCELHO, X->NOME_FREGUESIA);
 }
 //-------------------------------
 void GravarFreguesia_Sessao(void* P, FILE* F)

@@ -17,13 +17,13 @@ DISTRITO* CriarDistrito(const char* id_distrito, const char* distrito)
 void MostrarDistrito(void* P)
 {
     DISTRITO* X = (DISTRITO*)P;
-    printf("DISTRITO (%s, %s)\n", X->ID_DISTRITO, X->NOME_DISTRITO);
+    printf("DISTRITO: %s\t%s\n", X->ID_DISTRITO, X->NOME_DISTRITO);
 }
 //-------------------------------
 void GravarDistrito(void* P, FILE* F)
 {
     DISTRITO* X = (DISTRITO*)P;
-    fprintf(F, "\t\t\tDISTRITO (%s, %s)\n", X->ID_DISTRITO, X->NOME_DISTRITO);
+    fprintf(F, "\t\t\tDISTRITO: %s\t%s\n", X->ID_DISTRITO, X->NOME_DISTRITO);
 }
 //-------------------------------
 void GravarDistrito_Sessao(void* P, FILE* F)

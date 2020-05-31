@@ -78,7 +78,7 @@ void MostrarHASHING(Hashing* H)
 {
     if (!H) return;
     NO_HAS* P = H->Inicio;
-    printf("NUMERO-AREAS = %d\n", H->NUM_CHAVES);
+    printf("Número de Areas = %d\n", H->NUM_CHAVES);
     while (P)
     {
         printf("[%s]\n", P->CHAVE);
@@ -283,6 +283,24 @@ void PesquisarAreaMenosRequisitada(Hashing* H)  //Não era pedido
         P = P->Prox_Chave;
     }
     printf("O menor número de requisições vai para a área %s com um total de %d requisições\n", chave, maior_req_todos);
+}
+//-------------------------------
+int MemoriaHASHING(Hashing* H)
+{
+    if (!H) return 0;
+
+    int Mem = 0;
+    Mem += sizeof(*H);
+
+    NO_HAS* P = H->Inicio;
+    while (P)
+    {
+        Mem += sizeof(*P);
+        Mem += sizeof(*(P->CHAVE));
+        Mem += sizeof(*(P->LLivros));
+        P = P->Prox_Chave;
+    }
+    return Mem;
 }
 //-------------------------------
 void DestruirHASHING(Hashing* H)

@@ -45,7 +45,7 @@ LIVRO* CriarLivro_Sessao(const char* area, const char* isbn, const char* titulo,
 void MostrarLivro(void* P)
 {
     LIVRO* X = (LIVRO*)P;
-    printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+    printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
 }
 //-------------------------------
 void MostrarLivrosRequisitadosPorRequisitante(void* P, int parametro)
@@ -55,13 +55,13 @@ void MostrarLivrosRequisitadosPorRequisitante(void* P, int parametro)
     int id_livro = atoi(X->ISBN);
 
     if (id_livro == parametro)
-        printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+        printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
 }
 //-------------------------------
 void GravarLivro(void* P, FILE* F)
 {
     LIVRO* X = (LIVRO*)P;
-    fprintf(F, "\t\t\tLIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+    fprintf(F, "\t\t\tLIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
 }
 //-------------------------------
 void GravarLivro_Sessao(void* P, FILE* F)
@@ -78,7 +78,7 @@ void MostrarLivroMaisRequisitado(void* P, int parametro)
 
     if (requisicao_maior == parametro)
     {
-        printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+        printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
         printf("Com um total de %d requisições!\n", requisicao_maior);
     }
 }
@@ -97,7 +97,7 @@ void MostrarLivroMaisRecente(void* P, int parametro)
     //Comparar o ano conseguido no passo anterior e comparar com o parametro de entrada 
     if (ano == parametro)
     {
-        printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+        printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
         printf("No ano 20%d!\n", ano);
     }
 }
@@ -110,7 +110,7 @@ void ProcurarLivro(void* P, const char* parametro)
     if (strcmp(X->ISBN, parametro) == 0)
     {
         printf("Encontrei\n");
-        printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+        printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
     }
 }
 //-------------------------------
@@ -165,7 +165,7 @@ int RequisitarLivro(void* P, const char* parametro)
             X->N_REQ++; //e incrementa o número de requisições desse mesmo livro
 
             printf("Livro Requisitado!\n");
-            printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+            printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
             return 0;   
         }
         else {
@@ -188,7 +188,7 @@ void DevolverLivro(void* P, const char* parametro)
             strcpy(X->ESTADO_REQ, "Disponivel"); //Se estiver requisitado, o estado de requisição é atualizado para DISPONIVEL
 
             printf("Livro devolvido!\n");
-            printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+            printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
         }
         else printf("Livro %s já se encontra disponivel para requisição.\n", X->TITULO);
     }
@@ -200,7 +200,7 @@ void MostrarRequisicoes(void* P)
 
     //Mostra livros com estado de requisição REQUISITADO
     if (strstr(X->ESTADO_REQ, "Requisitado") != NULL) {
-        printf("LIVRO (%s, %s, %s, %s, %s, %d, %s)\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
+        printf("LIVRO: %s\t%s\t%s\t%s\t%s\t%d\t%s\n", X->ISBN, X->AREA, X->TITULO, X->AUTOR, X->ANO, X->N_REQ, X->ESTADO_REQ);
     }
 }
 //-------------------------------

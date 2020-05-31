@@ -12,6 +12,7 @@ extern void MostrarHASHING(Hashing* H);
 extern LIVRO* CriarLivro(const char* area, const char* isbn, const char* titulo, const char* autor, const char* ano);
 extern void CarregarLivros(Hashing* Biblioteca, const char* nome_fich);
 extern void OrganizarLivros();
+extern void OrganizarRequisitantes();
 extern void PesquisarLivros(Hashing* H, const char* parametro);
 extern void PesquisarLivroMaisRequisitado(Hashing* H);
 extern void PesquisarAreaMaisRequisitada(Hashing* H);
@@ -22,6 +23,7 @@ extern int RequisitarIDLivro(Hashing* H, const char* parametro);
 extern void Devolver(Hashing* H, const char* parametro);
 extern void MostrarLivrosRequisitados(Hashing* H);
 extern void MostrarHASHINGLivrosRequisitadosPorRequisitante(Hashing* H, LISTA* L, int parametro);
+extern int MemoriaHASHING(Hashing* H);
 extern void DestruirHASHING(Hashing* H);
 
 extern LISTA* CriarLISTA();
@@ -32,6 +34,7 @@ extern void ProcurarLISTA(LISTA* L, void (*func)(void*, const char*), const char
 extern void ProcurarLivroMaisRequisitadoRecente(LISTA* L, void (*func)(void*, int), int parametro);
 extern int GetIDRequisitantesComIDLivro(LISTA* L, int (*func)(void*, int), int parametro);
 extern int GetID(LISTA* L, int (*func)(void*, const char*), const char* parametro);
+extern int MemoriaLista(LISTA* L);
 extern void DestruirLISTA(LISTA* L, void (*func)(void*));
 
 extern REQUISITANTE* CriarRequisitante(const char* id_requisitante, const char* requisitante, const char* data_nasc, const char* id_freguesia);
@@ -111,6 +114,7 @@ int menuGestao()
     printf("\n| (3) Gestão de Requisições                                                  |");
     printf("\n| (4) Determinar Memória Total                                               |");
     printf("\n| (5) Gravar Tudo em XML                                                     |");
+    printf("\n| (6) Gravar Alterações da Sessão                                            |");
     printf("\n| ---------------------------------------------------------------------------|");
     printf("\n| (0) SAIR                                                                   |");
     printf("\n#----------------------------------------------------------------------------#\n");
@@ -119,7 +123,7 @@ int menuGestao()
         printf("\n  Qual é a sua opção? ");
         fflush(stdin);
         scanf("%d", &x);
-    } while (x < 0 || x > 5);
+    } while (x < 0 || x > 6);
     return x;
 }
 //---------------------------------
@@ -227,11 +231,12 @@ int main()
         case 2:
             //Carregar Informação como se fosse a primeira vez
             OrganizarLivros();
+            OrganizarRequisitantes();
             CarregarLivros(Biblioteca, "Ficheiros/Livros_Organizados.txt");
             CarregarDistritos(Distritos, "Ficheiros/Distritos.txt");
             CarregarConcelhos(Concelhos, "Ficheiros/Concelhos.txt");
             CarregarFreguesias(Freguesias, "Ficheiros/Freguesias.txt");
-            CarregarRequisitantes(Requisitantes, "Ficheiros/Requisitantes.txt");
+            CarregarRequisitantes(Requisitantes, "Ficheiros/Requisitantes_Organizados.txt");
             MenuS = false;
             break;
         case 0:
@@ -457,19 +462,26 @@ int main()
             }
             break;
         case 4:
-            //FALTA
+            printf("Memória utilizada pela estrutura de dados corresponde a %d bytes\n", MemoriaHASHING(Biblioteca) + MemoriaLista(Requisitantes) + MemoriaLista(Requisicoes) + MemoriaLista(Freguesias) + MemoriaLista(Concelhos) + MemoriaLista(Distritos));
             break;
         case 5:
-            char nome_xml[20];
+            char nome_xml[20], diretorio[15];
+            
+            strcpy(diretorio, dir);
 
             printf("Indique o nome para o ficheiro xml: \n");
             scanf("%s", nome_xml);
 
-            strcat(dir, nome_xml);  //Concatena o diretório com o nome do ficheiro
-            strcat(dir, extensao);  //Concatena o diretório + nome ficheiro com extensão do ficheiro, no caso XML 
+            strcat(diretorio, nome_xml);  //Concatena o diretório com o nome do ficheiro
+            strcat(diretorio, extensao);  //Concatena o diretório + nome ficheiro com extensão do ficheiro, no caso XML 
 
-            GravarXML(Biblioteca, Requisitantes, Distritos, Concelhos, Freguesias, Requisicoes, dir);
-            printf("Ficheiro gravado! Pode encontrar o seu ficheiro em %s\n", dir);
+            GravarXML(Biblioteca, Requisitantes, Distritos, Concelhos, Freguesias, Requisicoes, diretorio);
+            printf("Ficheiro gravado! Pode encontrar o seu ficheiro em %s\n", diretorio);
+            break;
+        case 6:
+            printf("A gravar alterações...\t");
+            GravarSessao(Biblioteca, Requisitantes, Distritos, Concelhos, Freguesias, Requisicoes);
+            printf("Alterações gravadas.\n");
             break;
         case 0: MenuP = false;
         }
