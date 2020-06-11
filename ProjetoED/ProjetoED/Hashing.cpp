@@ -114,6 +114,8 @@ void MostrarHASHINGLivrosRequisitadosPorRequisitante(Hashing* H, LISTA* L, int p
         }
         P = P->Prox_Chave;
     }
+
+    free(array);
 }
 //-------------------------------
 void AreaComMaisLivros(Hashing* H)
@@ -214,7 +216,6 @@ void MostrarLivrosMaisRecentes(Hashing* H)
         }
         P = P->Prox_Chave;
     }
-    printf("%d\n", mais_recente);
     while (AUX)
     {
         ProcurarLivroMaisRequisitadoRecente(AUX->LLivros, MostrarLivroMaisRecente, mais_recente);   //Procura livros com o ano mais recente

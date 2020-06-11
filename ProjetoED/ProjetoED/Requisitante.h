@@ -1,6 +1,7 @@
 #ifndef REQUISITANTE_H_INCLUDED
 #define REQUISITANTE_H_INCLUDED
 
+#include <time.h>
 #include "Lista.h"
 #include "Freguesia.h"
 

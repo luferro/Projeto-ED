@@ -7,7 +7,7 @@ extern LIVRO* CriarLivro(const char* area, const char* isbn, const char* titulo,
 extern LIVRO* CriarLivro_Sessao(const char* area, const char* isbn, const char* titulo, const char* autor, const char* ano, int num_req, const char* estado_req);
 extern REQUISITANTE* CriarRequisitante(const char* id_requisitante, const char* requisitante, const char* data_nasc, const char* id_freguesia);
 extern REQUISITANTE* CriarRequisitante_Sessao(const char* id_requisitante, const char* requisitante, const char* data_nasc, int ja_requisitou, int tem_requisicao, const char* id_freguesia);
-extern REQUISICAO* CriarRequisicao(int id_requisicao, int id_requisitante, int id_livro);
+extern REQUISICAO* CriarRequisicao(int id_requisitante, int id_livro);
 extern FREGUESIA* CriarFreguesia(const char* id_freguesia, const char* freguesia); 
 extern CONCELHO* CriarConcelho(const char* id_concelho, const char* concelho);
 extern DISTRITO* CriarDistrito(const char* id_distrito, const char* distrito);
@@ -60,15 +60,55 @@ void OrganizarLivros()
 	FILE* logs = fopen("Ficheiros/logs_livros.txt", "a+");
 	if (!fich_livros) return;
 	char linha[400];
+	char linha_separar[400];
 	char copia[400];
 	while (fgets(linha, sizeof(linha), fich_livros) != NULL) {
-		if (strstr(linha, "----------") /*|| strstr(linha, ";;;") */|| strstr(linha, "Dep.")) {
-			fputs("\nRegisto de Livro inválido\n", logs);
-			fputs(linha, logs);
-		}
-		else {
-			strcpy(copia, linha);
-			fputs(copia, fich_livros_organizado);
+
+		strcpy(linha_separar, linha);
+
+		char** v = SepararCampos(linha_separar, 20, ";");
+
+		if (v) {
+			//Validar se os campos utilizados existem
+			if (strstr(v[1], "---") || strstr(v[10], "---") || strstr(v[11], "---") || strstr(v[2], "---") || strstr(v[0], "---") || strstr(linha, "Dep.")) {
+				//Se a área não existir
+				if (strstr(v[1], "---")) {
+					fputs("\nArea inválida\n", logs);
+					fputs(linha, logs);
+				}
+				//Se o ISBN não existir
+				if (strstr(v[10], "---")) {
+					fputs("\Código do livro inválido\n", logs);
+					fputs(linha, logs);
+				}
+				//Se o título não existir
+				if (strstr(v[11], "---")) {
+					fputs("\Título do livro inválido\n", logs);
+					fputs(linha, logs);
+				}
+				//Se o autor não existir
+				if (strstr(v[2], "---")) {
+					fputs("\Autor do livro inválido\n", logs);
+					fputs(linha, logs);
+				}
+				//Se a data do livro não existir
+				if (strstr(v[0], "---")) {
+					fputs("\nData do livro inválida\n", logs);
+					fputs(linha, logs);
+				}
+				//Se a linha for a descrição dos campos
+				if (strstr(linha, "Dep.")) {
+					fputs("\nLinha a ser ignorada\n", logs);
+					fputs(linha, logs);
+				}
+			}
+			else {
+				strcpy(copia, linha);
+				fputs(copia, fich_livros_organizado);
+			}
+			for (int i = 0; i < 20; i++)
+				free(v[i]);
+			free(v);
 		}
 	}
 	fclose(fich_livros);
@@ -174,7 +214,10 @@ void OrganizarRequisitantes() {
 
 		char** v = SepararCampos(linha_separar, 4, "\t");
 
-		int sum_id = atoi(v[0]), resto = 0, sum = 0;
+		int sum_id = atoi(v[0]), resto = 0, sum = 0, dia;
+
+		char* primeiro_arg = strtok(v[2], "-");
+		dia = atoi(primeiro_arg);
 
 		//Soma os algarismos do id requisitante
 		while (sum_id > 0)
@@ -184,7 +227,7 @@ void OrganizarRequisitantes() {
 			sum_id = sum_id / 10;
 		}
 		//Validar id requisitante e data de nascimento
-		if (strlen(v[0]) != 9 || sum % 10 || strstr(v[2], "/") || strlen(v[3]) != 7) {
+		if (strlen(v[0]) != 9 || sum % 10 || strstr(v[2], "/") || dia > 31 || strlen(v[3]) != 7) {
 			//Se id requisitante não tiver 9 algarismos
 			if (strlen(v[0]) != 9) {
 				fputs("\nID de requisitante inválido\n", logs);
@@ -196,7 +239,7 @@ void OrganizarRequisitantes() {
 				fputs(linha, logs);
 			}
 			//Se data não tiver no formato necessário, dd-mm-yyyy
-			if (strstr(v[2], "/")) {
+			if (strstr(v[2], "/") || dia > 31) {
 				fputs("\nFormato de data inválido\n", logs);
 				fputs(linha, logs);
 			}
@@ -210,6 +253,10 @@ void OrganizarRequisitantes() {
 			strcpy(copia, linha);
 			fputs(copia, fich_requisitantes_organizado);
 		}
+
+		for (int i = 0; i < 4; i++)
+			free(v[i]);
+		free(v);
 	}
 	fclose(fich_requisitantes);
 	fclose(fich_requisitantes_organizado);
@@ -404,11 +451,11 @@ void CarregarSessao(Hashing* Biblioteca, LISTA* Freguesias, LISTA* Concelhos, LI
 	while (!feof(fich_requisicoes)) {
 		fgets(linha, 400, fich_requisicoes);
 
-		char** v = SepararCampos(linha, 3, "\t");
+		char** v = SepararCampos(linha, 2, "\t");
 
 		if (v) {
-			AddLista(Requisicoes, CriarRequisicao(atoi(v[0]), atoi(v[1]), atoi(v[2])));
-			for (int i = 0; i < 3; i++)
+			AddLista(Requisicoes, CriarRequisicao(atoi(v[1]), atoi(v[0])));
+			for (int i = 0; i < 2; i++)
 				free(v[i]);
 			free(v);
 		}

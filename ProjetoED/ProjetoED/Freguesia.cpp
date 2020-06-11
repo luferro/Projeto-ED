@@ -35,7 +35,7 @@ void MostrarFreguesia(void* P)
 void GravarFreguesia(void* P, FILE* F)
 {
     FREGUESIA* X = (FREGUESIA*)P;
-    fprintf(F, "\t\t\tFREGUESIA: %s\t%s\t%s\n", X->ID_FREGUESIA, X->ID_CONCELHO, X->NOME_FREGUESIA);
+    fprintf(F, "\t\tFREGUESIA: %s\t%s\t%s\n", X->ID_FREGUESIA, X->ID_CONCELHO, X->NOME_FREGUESIA);
 }
 //-------------------------------
 void GravarFreguesia_Sessao(void* P, FILE* F)

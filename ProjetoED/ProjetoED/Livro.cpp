@@ -184,7 +184,7 @@ void DevolverLivro(void* P, const char* parametro)
     if (strcmp(X->TITULO, parametro) == 0)
     {
         //Posteriormente, verifica o estado de requisição do livro em questão
-        if (strcmp(X->ESTADO_REQ, "Requisitado") == 0) {
+        if (strstr(X->ESTADO_REQ, "Requisitado") != NULL) {
             strcpy(X->ESTADO_REQ, "Disponivel"); //Se estiver requisitado, o estado de requisição é atualizado para DISPONIVEL
 
             printf("Livro devolvido!\n");

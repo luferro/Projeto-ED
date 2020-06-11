@@ -1,278 +1,555 @@
-0101	01	01
-0102	01	01
-0103	01	01
-0104	01	01
-0105	01	01
-0106	01	01
-0107	01	01
-0108	01	01
-0109	01	01
-0110	01	01
-0111	01	01
-0112	01	01
-0113	01	01
-0114	01	01
-0115	01	01
-0116	01	01
-0117	01	01
-0118	01	01
-0119	01	01
-0201	02	02
-0202	02	02
-0203	02	02
-0204	02	02
-0205	02	02
-0206	02	02
-0207	02	02
-0208	02	02
-0209	02	02
-0210	02	02
-0211	02	02
-0212	02	02
-0213	02	02
-0214	02	02
-0301	03	03
-0302	03	03
-0303	03	03
-0304	03	03
-0305	03	03
-0306	03	03
-0307	03	03
-0308	03	03
-0309	03	03
-0310	03	03
-0311	03	03
-0312	03	03
-0313	03	03
-0314	03	03
-0401	04	04
-0402	04	04
-0403	04	04
-0404	04	04
-0405	04	04
-0406	04	04
-0407	04	04
-0408	04	04
-0409	04	04
-0410	04	04
-0411	04	04
-0412	04	04
-0501	05	05
-0502	05	05
-0503	05	05
-0504	05	05
-0505	05	05
-0506	05	05
-0507	05	05
-0508	05	05
-0509	05	05
-0510	05	05
-0511	05	05
-0601	06	06
-0602	06	06
-0603	06	06
-0604	06	06
-0605	06	06
-0606	06	06
-0607	06	06
-0608	06	06
-0609	06	06
-0610	06	06
-0611	06	06
-0612	06	06
-0613	06	06
-0614	06	06
-0615	06	06
-0616	06	06
-0617	06	06
-0701	07	07
-0702	07	07
-0703	07	07
-0704	07	07
-0705	07	07
-0706	07	07
-0707	07	07
-0708	07	07
-0709	07	07
-0710	07	07
-0711	07	07
-0712	07	07
-0713	07	07
-0714	07	07
-0801	08	08
-0802	08	08
-0803	08	08
-0804	08	08
-0805	08	08
-0806	08	08
-0807	08	08
-0808	08	08
-0809	08	08
-0810	08	08
-0811	08	08
-0812	08	08
-0813	08	08
-0814	08	08
-0815	08	08
-0816	08	08
-0901	09	09
-0902	09	09
-0903	09	09
-0904	09	09
-0905	09	09
-0906	09	09
-0907	09	09
-0908	09	09
-0909	09	09
-0910	09	09
-0911	09	09
-0912	09	09
-0913	09	09
-0914	09	09
-1001	10	10
-1002	10	10
-1003	10	10
-1004	10	10
-1005	10	10
-1006	10	10
-1007	10	10
-1008	10	10
-1009	10	10
-1010	10	10
-1011	10	10
-1012	10	10
-1013	10	10
-1014	10	10
-1015	10	10
-1016	10	10
-1101	11	11
-1102	11	11
-1103	11	11
-1104	11	11
-1105	11	11
-1106	11	11
-1107	11	11
-1108	11	11
-1109	11	11
-1110	11	11
-1111	11	11
-1112	11	11
-1113	11	11
-1114	11	11
-1115	11	11
-1116	11	11
-1201	12	12
-1202	12	12
-1203	12	12
-1204	12	12
-1205	12	12
-1206	12	12
-1207	12	12
-1208	12	12
-1209	12	12
-1210	12	12
-1211	12	12
-1212	12	12
-1213	12	12
-1214	12	12
-1215	12	12
-1301	13	13
-1302	13	13
-1303	13	13
-1304	13	13
-1305	13	13
-1306	13	13
-1307	13	13
-1308	13	13
-1309	13	13
-1310	13	13
-1311	13	13
-1312	13	13
-1313	13	13
-1314	13	13
-1315	13	13
-1316	13	13
-1317	13	13
-1318	13	13
-1401	14	14
-1402	14	14
-1403	14	14
-1404	14	14
-1405	14	14
-1406	14	14
-1407	14	14
-1408	14	14
-1409	14	14
-1410	14	14
-1411	14	14
-1412	14	14
-1413	14	14
-1414	14	14
-1415	14	14
-1416	14	14
-1417	14	14
-1418	14	14
-1419	14	14
-1420	14	14
-1421	14	14
-1501	15	15
-1502	15	15
-1503	15	15
-1504	15	15
-1505	15	15
-1506	15	15
-1507	15	15
-1508	15	15
-1509	15	15
-1510	15	15
-1511	15	15
-1512	15	15
-1513	15	15
-1601	16	16
-1602	16	16
-1603	16	16
-1604	16	16
-1605	16	16
-1606	16	16
-1607	16	16
-1608	16	16
-1609	16	16
-1610	16	16
-1701	17	17
-1702	17	17
-1703	17	17
-1704	17	17
-1705	17	17
-1706	17	17
-1707	17	17
-1708	17	17
-1709	17	17
-1710	17	17
-1711	17	17
-1712	17	17
-1713	17	17
-1714	17	17
-1801	18	18
-1802	18	18
-1803	18	18
-1804	18	18
-1805	18	18
-1806	18	18
-1807	18	18
-1808	18	18
-1809	18	18
-1810	18	18
-1811	18	18
-1812	18	18
-1813	18	18
-1814	18	18
-1815	18	18
-1816	18	18
-1817	18	18
-1818	18	18
-1819	18	18
-1820	18	18
-1821	18	18
-1822	18	18
-1823	18	18
-1824	18	18
+1824	18	Vouzela
+1823	18	Viseu
+
+1822	18	Vila Nova de Paiva
+
+1821	18	Tondela
+
+1820	18	Tarouca
+
+1819	18	Tabuaco
+
+1818	18	Sernancelhe
+
+1817	18	Satao
+
+1816	18	S. Pedro do Sul
+
+1815	18	S. Joao da Pesqueira
+
+1814	18	Santa Comba Dao
+
+1813	18	Resende
+
+1812	18	Penedono
+
+1811	18	Penalva do Castelo
+
+1810	18	Oliveira de Frades
+
+1809	18	Nelas
+
+1808	18	Mortagua
+
+1807	18	Moimenta da Beira
+
+1806	18	Mangualde
+
+1805	18	Lamego
+
+1804	18	Cinfaes
+
+1803	18	Castro Daire
+
+1802	18	Carregal do Sal
+
+1801	18	Armamar
+
+1714	17	Vila Real
+
+1713	17	Vila Pouca de Aguiar
+
+1712	17	Valpacos
+
+1711	17	Santa Marta de Penaguiao
+
+1710	17	Sabrosa
+
+1709	17	Ribeira de Pena
+
+1708	17	Peso da Regua
+
+1707	17	Murca
+
+1706	17	Montalegre
+
+1705	17	Mondim de Basto
+
+1704	17	Mesao Frio
+
+1703	17	Chaves
+
+1702	17	Boticas
+
+1701	17	Alijo
+
+1610	16	Vila Nova de Cerveira
+
+1609	16	Viana do Castelo
+
+1608	16	Valenca
+
+1607	16	Ponte de Lima
+
+1606	16	Ponte da Barca
+
+1605	16	Paredes de Coura
+
+1604	16	Moncao
+
+1603	16	Melgaco
+
+1602	16	Caminha
+
+1601	16	Arcos de Valdevez
+
+1513	15	Sines
+
+1512	15	Setubal
+
+1511	15	Sesimbra
+
+1510	15	Seixal
+
+1509	15	Santiago do Cacem
+
+1508	15	Palmela
+
+1507	15	Montijo
+
+1506	15	Moita
+
+1505	15	Grandola
+
+1504	15	Barreiro
+
+1503	15	Almada
+
+1502	15	Alcochete
+
+1501	15	Alcacer do Sal
+
+1421	14	Ourem
+
+1420	14	Vila Nova da Barquinha
+
+1419	14	Torres Novas
+
+1418	14	Tomar
+
+1417	14	Sardoal
+
+1416	14	Santarem
+
+1415	14	Salvaterra de Magos
+
+1414	14	Rio Maior
+
+1413	14	Macao
+
+1412	14	Golega
+
+1411	14	Ferreira do Zezere
+
+1410	14	Entroncamento
+
+1409	14	Coruche
+
+1408	14	Constancia
+
+1407	14	Chamusca
+
+1406	14	Cartaxo
+
+1405	14	Benavente
+
+1404	14	Alpiarca
+
+1403	14	Almeirim
+
+1402	14	Alcanena
+
+1401	14	Abrantes
+
+1318	13	Trofa
+
+1317	13	Vila Nova de Gaia
+
+1316	13	Vila do Conde
+
+1315	13	Valongo
+
+1314	13	Santo Tirso
+
+1313	13	Povoa de Varzim
+
+1312	13	Porto
+
+1311	13	Penafiel
+
+1310	13	Paredes
+
+1309	13	Pacos de Ferreira
+
+1308	13	Matosinhos
+
+1307	13	Marco de Canaveses
+
+1306	13	Maia
+
+1305	13	Lousada
+
+1304	13	Gondomar
+
+1303	13	Felgueiras
+
+1302	13	Baiao
+
+1301	13	Amarante
+
+1215	12	Sousel
+
+1214	12	Portalegre
+
+1213	12	Ponte de Sor
+
+1212	12	Nisa
+
+1211	12	Monforte
+
+1210	12	Marvao
+
+1209	12	Gaviao
+
+1208	12	Fronteira
+
+1207	12	Elvas
+
+1206	12	Crato
+
+1205	12	Castelo de Vide
+
+1204	12	Campo Maior
+
+1203	12	Avis
+
+1202	12	Arronches
+
+1201	12	Alter do Chao
+
+1116	11	Odivelas
+
+1115	11	Amadora
+
+1114	11	Vila Franca de Xira
+
+1113	11	Torres Vedras
+
+1112	11	Sobral de Monte Agraco
+
+1111	11	Sintra
+
+1110	11	Oeiras
+
+1109	11	Mafra
+
+1108	11	Lourinha
+
+1107	11	Loures
+
+1106	11	Lisboa
+
+1105	11	Cascais
+
+1104	11	Cadaval
+
+1103	11	Azambuja
+
+1102	11	Arruda Dos Vinhos
+
+1101	11	Alenquer
+
+1016	10	Porto de Mos
+
+1015	10	Pombal
+
+1014	10	Peniche
+
+1013	10	Pedrogao Grande
+
+1012	10	Obidos
+
+1011	10	Nazare
+
+1010	10	Marinha Grande
+
+1009	10	Leiria
+
+1008	10	Figueiro Dos Vinhos
+
+1007	10	Castanheira de Pera
+
+1006	10	Caldas da Rainha
+
+1005	10	Bombarral
+
+1004	10	Batalha
+
+1003	10	Ansiao
+
+1002	10	Alvaiazere
+
+1001	10	Alcobaca
+
+0914	09	Vila Nova de Foz Coa
+
+0913	09	Trancoso
+
+0912	09	Seia
+
+0911	09	Sabugal
+
+0910	09	Pinhel
+
+0909	09	Meda
+
+0908	09	Manteigas
+
+0907	09	Guarda
+
+0906	09	Gouveia
+
+0905	09	Fornos de Algodres
+
+0904	09	Figueira de Castelo Rodrigo
+
+0903	09	Celorico da Beira
+
+0902	09	Almeida
+
+0901	09	Aguiar da Beira
+
+0816	08	Vila Real de Santo Antonio
+
+0815	08	Vila do Bispo
+
+0814	08	Tavira
+
+0813	08	Silves
+
+0812	08	S. Bras de Alportel
+
+0811	08	Portimao
+
+0810	08	Olhao
+
+0809	08	Monchique
+
+0808	08	Loule
+
+0807	08	Lagos
+
+0806	08	Lagoa (Algarve)
+
+0805	08	Faro
+
+0804	08	Castro Marim
+
+0803	08	Aljezur
+
+0802	08	Alcoutim
+
+0801	08	Albufeira
+
+0714	07	Vila Vicosa
+
+0713	07	Viana do Alentejo
+
+0712	07	Vendas Novas
+
+0711	07	Reguengos de Monsaraz
+
+0710	07	Redondo
+
+0709	07	Portel
+
+0708	07	Mourao
+
+0707	07	Mora
+
+0706	07	Montemor-O-Novo
+
+0705	07	Evora
+
+0704	07	Estremoz
+
+0703	07	Borba
+
+0702	07	Arraiolos
+
+0701	07	Alandroal
+
+0617	06	Vila Nova de Poiares
+
+0616	06	Tabua
+
+0615	06	Soure
+
+0614	06	Penela
+
+0613	06	Penacova
+
+0612	06	Pampilhosa da Serra
+
+0611	06	Oliveira do Hospital
+
+0610	06	Montemor-O-Velho
+
+0609	06	Miranda do Corvo
+
+0608	06	Mira
+
+0607	06	Lousa
+
+0606	06	Gois
+
+0605	06	Figueira da Foz
+
+0604	06	Condeixa-A-Nova
+
+0603	06	Coimbra
+
+0602	06	Cantanhede
+
+0601	06	Arganil
+
+0511	05	Vila Velha de Rodao
+
+0510	05	Vila de Rei
+
+0509	05	Serta
+
+0508	05	Proenca-A-Nova
+
+0507	05	Penamacor
+
+0506	05	Oleiros
+
+0505	05	Idanha-A-Nova
+
+0504	05	Fundao
+
+0503	05	Covilha
+
+0502	05	Castelo Branco
+
+0501	05	Belmonte
+
+0412	04	Vinhais
+
+0411	04	Vimioso
+
+0410	04	Vila Flor
+
+0409	04	Torre de Moncorvo
+
+0408	04	Mogadouro
+
+0407	04	Mirandela
+
+0406	04	Miranda do Douro
+
+0405	04	Macedo de Cavaleiros
+
+0404	04	Freixo de Espada A Cinta
+
+0403	04	Carrazeda de Ansiaes
+
+0402	04	Braganca
+
+0401	04	Alfandega da Fe
+
+0314	03	Vizela
+
+0313	03	Vila Verde
+
+0312	03	Vila Nova de Famalicao
+
+0311	03	Vieira do Minho
+
+0310	03	Terras de Bouro
+
+0309	03	Povoa de Lanhoso
+
+0308	03	Guimaraes
+
+0307	03	Fafe
+
+0306	03	Esposende
+
+0305	03	Celorico de Basto
+
+0304	03	Cabeceiras de Basto
+
+0303	03	Braga
+
+0302	03	Barcelos
+
+0301	03	Amares
+
+0214	02	Vidigueira
+
+0213	02	Serpa
+
+0212	02	Ourique
+
+0211	02	Odemira
+
+0210	02	Moura
+
+0209	02	Mertola
+
+0208	02	Ferreira do Alentejo
+
+0207	02	Cuba
+
+0206	02	Castro Verde
+
+0205	02	Beja
+
+0204	02	Barrancos
+
+0203	02	Alvito
+
+0202	02	Almodovar
+
+0201	02	Aljustrel
+
+0119	01	Vale de Cambra
+
+0118	01	Vagos
+
+0117	01	Sever do Vouga
+
+0116	01	S. Joao da Madeira
+
+0115	01	Ovar
+
+0114	01	Oliveira do Bairro
+
+0113	01	Oliveira de Azemeis
+
+0112	01	Murtosa
+
+0111	01	Mealhada
+
+0110	01	Ilhavo
+
+0109	01	Santa Maria da Feira
+
+0108	01	Estarreja
+
+0107	01	Espinho
+
+0106	01	Castelo de Paiva
+
+0105	01	Aveiro
+
+0104	01	Arouca
+
+0103	01	Anadia
+
+0102	01	Albergaria-A-Velha
+
+0101	01	Agueda
+

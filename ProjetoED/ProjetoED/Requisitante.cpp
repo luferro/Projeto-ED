@@ -76,7 +76,7 @@ void MostrarRequisitanteOrdernadoApelido(void* P, const char* parametro)
 void GravarRequisitante(void* P, FILE* F)
 {
     REQUISITANTE* X = (REQUISITANTE*)P;
-    fprintf(F, "\t\t\tREQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
+    fprintf(F, "\t\tREQUISITANTE: %s\t%s\t%s\t%d livros\t%s", X->ID_REQUISITANTE, X->REQUISITANTE, X->DATA_NASC, X->TEM_REQUISICAO, X->ID_FREGUESIA);
 }
 //-------------------------------
 void GravarRequisitante_Sessao(void* P, FILE* F)
@@ -135,18 +135,26 @@ void GetTemRequisicoes(void* P)
 int GetIdadeRequisitantes(void* P)
 {
     REQUISITANTE* X = (REQUISITANTE*)P;
+
+    time_t tempo;
+    tempo = time(NULL);
     
     char* str = X->DATA_NASC;
-    int ano = 0, idade = 0;
+    int ano = 0, ano_atual = 0, idade = 0;
 
     //Conseguir a última token da data de nascimento, neste caso o ano
-    char* last = strrchr(str, '-');
-    if (last != NULL) {
-        ano = atoi(last + 1);
+    char* last1 = strrchr(str, '-');
+    if (last1 != NULL) {
+        ano = atoi(last1 + 1);
     }  
+    //Conseguir a última token da data atual, neste caso o ano 2020
+    char* last2 = strrchr(ctime(&tempo), ' ');
+    if (last2 != NULL) {
+        ano_atual = atoi(last2 + 1);
+    }
 
     //Calcular a idade do requisitante conforme o seu ano de nascimento previamente conseguido
-    idade = 2020 - ano;
+    idade = ano_atual - ano;
 
     return idade;
 }

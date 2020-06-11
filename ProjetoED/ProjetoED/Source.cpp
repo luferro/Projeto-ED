@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <Windows.h>
 #include <string.h>
 #include <locale.h>
 #include "Hashing.h"
@@ -60,7 +61,7 @@ extern void GetTemRequisicoes(void* P);
 extern void GetNuncaRequisitou(void* P);
 extern void DestruirREQUISITANTE(void* P);
 
-extern REQUISICAO* CriarRequisicao(int id_requisicao, int id_requisitante, int id_livro);
+extern REQUISICAO* CriarRequisicao(int id_requisitante, int id_livro);
 extern void MostrarRequisicoesID(void* P);
 extern void RemoverRequisicao(void* P, int parametro);
 extern int GetIDRequisitante(void* P, int parametro);
@@ -96,6 +97,7 @@ int GestaoSessao()
     printf("\n| ----------------------------------------------------------------------------|");
     printf("\n| (0) SAIR                                                                    |");
     printf("\n#-----------------------------------------------------------------------------#\n");
+    printf("\nNOTA: O programa grava automaticamente ao sair no MENU PRINCIPAL.\n");
     fflush(stdin);
     do {
         printf("\n  Qual é a sua opção? ");
@@ -202,7 +204,6 @@ int GestaoRequisicoes()
 //---------------------------------
 int main()
 {
-    //while (1) {
     setlocale(LC_ALL, "Portuguese");
 
     Hashing* Biblioteca = CriarHASHING();
@@ -211,7 +212,7 @@ int main()
     LISTA* Freguesias = CriarLISTA();
     LISTA* Concelhos = CriarLISTA();
     LISTA* Distritos = CriarLISTA();
-       
+
     //Diretório e extensão para guardar em XML
     char dir[] = "Ficheiros/XML/", extensao[] = ".xml";
 
@@ -261,16 +262,22 @@ int main()
                 case 1:
                     char area[4], titulo[20], isbn_livro[9], autor[50], data[12];
 
-                    printf("Em que área se insere o livro a adicionar?\n");
-                    scanf("%s", area);
-                    printf("Qual o ISBN do livro a adicionar?\n");
-                    scanf("%s", isbn_livro);
+                    do {
+                        printf("Em que área se insere o livro a adicionar?\n");
+                        scanf("%s", area);
+                    } while (strlen(area) != 3);
+                    do {
+                        printf("Qual o ISBN do livro a adicionar?\n");
+                        scanf("%s", isbn_livro);
+                    } while (strlen(isbn_livro) != 8);
                     printf("Qual o título do livro a adicionar?\n");
                     scanf(" %[^\n]", titulo);
                     printf("Qual o autor do livro a adicionar?\n");
                     scanf(" %[^\n]", autor);
-                    printf("Qual a data de lançamento do livro a adicionar? dd/mm(ex. mai)/yy\n");
-                    scanf("%s", data);
+                    do {
+                        printf("Qual a data de lançamento do livro a adicionar? dd/mm(ex. mai)/yy\n");
+                        scanf("%s", data);
+                    } while (strlen(data) != 9);
 
                     AddHASHING(Biblioteca, CriarLivro(area, isbn_livro, titulo, autor, data));  //Adiciona um novo livro
                     break;
@@ -283,7 +290,7 @@ int main()
                 case 4:
                     char isbn[10];
 
-                    printf("Introduza o código do livro: ");
+                    printf("Introduza o código do livro: \t");
                     scanf("%s", isbn);
 
                     PesquisarLivros(Biblioteca, isbn);  //Procura um determinado livro através do seu código
@@ -314,25 +321,29 @@ int main()
                 switch (opRequisitantes)
                 {
                 case 1:
-                    char id_utilizador[12], nome[50], data_nasc[12], id_freguesia[7];
+                    char id_utilizador[12], nome[50], data_nasc[12], id_freguesia[8];
 
                     printf("ID do utilizador a adicionar?\n");
                     scanf("%s", id_utilizador);
-                    printf("ID da freguesia do utilizador a adicionar?\n");
-                    scanf("%s", id_freguesia);
+                    do {
+                        printf("ID da freguesia do utilizador a adicionar?\n");
+                        scanf("%s", id_freguesia);
+                    } while (strlen(id_freguesia) != 6);
                     do {
                         printf("Nome completo do utilizador a adicionar?\n");
                         scanf(" %[^\n]", nome);
                     } while (strstr(nome, " ") == NULL);    //Verificar que o nome é composto
-                    printf("Data de nascimento do utilizador a adicionar? dd-mm-yyyy\n");
-                    scanf("%s", data_nasc);
+                    do {
+                        printf("Data de nascimento do utilizador a adicionar? dd-mm-yyyy\n");
+                        scanf("%s", data_nasc);
+                    } while (strlen(data_nasc) != 10);
 
-                    AddLista(Requisitantes, CriarRequisitante(id_utilizador, nome, data_nasc, id_freguesia));   //Adiciona um novo requisitante
+                    AddLista(Requisitantes, CriarRequisitante(id_utilizador, nome, data_nasc, strcat(id_freguesia, "\n")));   //Adiciona um novo requisitante
                     break;
                 case 2:
                     char nome_req[50];
 
-                    printf("Introduza o nome do requisitante: ");
+                    printf("Introduza o nome do requisitante: (CASE SENSITIVE)\t");
                     scanf(" %[^\n]", nome_req);
 
                     ProcurarLISTA(Requisitantes, ProcurarRequisitante, nome_req);   //Verifica se um determinado requisitante existe
@@ -355,7 +366,7 @@ int main()
                 case 8:
                     int idade_x;
 
-                    printf("Introduza a idade que deseja: ");
+                    printf("Introduza a idade que deseja: \t");
                     scanf(" %d", &idade_x);
 
                     MostrarIdadeSuperiorX(Requisitantes, GetIdadeRequisitantes, idade_x);   //Mostra quantos requisitantes têm idade superior a idade_x
@@ -367,7 +378,7 @@ int main()
                     char nome_req_com_requisicoes[50];
                     int id_requisitante_com_requisicoes;
 
-                    printf("Introduza o nome completo do requisitante: ");
+                    printf("Introduza o nome completo do requisitante: (CASE SENSITIVE)\t");
                     scanf(" %[^\n]", nome_req_com_requisicoes);
 
                     id_requisitante_com_requisicoes = GetID(Requisitantes, GetIDRequisitante, nome_req_com_requisicoes);    //Recebe o ID do requisitante que corresponde ao seu nome completo
@@ -387,9 +398,9 @@ int main()
                     char nome_distrito[50], apelido[50];
                     int id_distrito, num_pessoas;
 
-                    printf("Introduza o apelido (primeira letra maiuscula): ");
+                    printf("Introduza o apelido: (CASE SENSITIVE - PRIMEIRA LETRA MAIUSCULA)\t");
                     scanf("%s", apelido);
-                    printf("Introduza o distrito (tudo maiusculo): ");
+                    printf("Introduza o distrito (CASE SENSITIVE - TUDO MAIUSCULO): \t");
                     scanf("%s", nome_distrito);
 
                     id_distrito = ProcurarDistrito(Distritos, GetDistritos, nome_distrito); //id_distrito recebe o id do nome do distrito introduzido pelo utilizador 
@@ -414,9 +425,9 @@ int main()
                     char livro_a_requisitar[50], nome_requisitante[50];
                     int id_livro, id_requisitante, jaRequisitado;
 
-                    printf("Introduza o nome completo do requisitante a efetuar a requisição: ");
+                    printf("Introduza o nome completo do requisitante a efetuar a requisição: (CASE SENSITIVE)\t");
                     scanf(" %[^\n]", nome_requisitante);
-                    printf("Introduza o nome completo do livro que deseja requisitar: ");
+                    printf("Introduza o nome completo do livro que deseja requisitar: (CASE SENSITIVE)\t");
                     scanf(" %[^\n]", livro_a_requisitar);
 
                     id_requisitante = GetID(Requisitantes, GetIDRequisitante, nome_requisitante);   //Retorna o ID associado ao nome_requisitante
@@ -432,16 +443,16 @@ int main()
 
                     ProcurarLISTA(Requisitantes, AlterarEstadoRequisitar, nome_requisitante); //Alterar estado de requisitante para JÁ REQUISITOU e incrementa número de livros que tem requisitados
 
-                    AddLista(Requisicoes, CriarRequisicao(1, id_requisitante, id_livro));   //Adiciono na lista requisições
+                    AddLista(Requisicoes, CriarRequisicao(id_requisitante, id_livro));   //Adiciono na lista requisições
                     break;
                 case 2:
                     char livro_a_devolver[50];
                     int id_livro_a_devolver, id_requisitante_devolver;
 
-                    printf("Introduza o nome do livro que deseja devolver: ");
+                    printf("Introduza o nome do livro que deseja devolver: (CASE SENSITIVE)\t");
                     scanf(" %[^\n]", livro_a_devolver);
 
-                    id_livro_a_devolver = RequisitarIDLivro(Biblioteca, livro_a_requisitar); //Retorna o ID associado ao livro_a_devolver
+                    id_livro_a_devolver = RequisitarIDLivro(Biblioteca, livro_a_devolver); //Retorna o ID associado ao livro_a_devolver
                     id_requisitante_devolver = GetIDRequisitantesComIDLivro(Requisicoes, GetIDRequisitante, id_livro_a_devolver); //Retorna o ID requisitante associado à requisição referente ao id_livro a devolver
 
                     //Validação simples
@@ -465,8 +476,8 @@ int main()
             printf("Memória utilizada pela estrutura de dados corresponde a %d bytes\n", MemoriaHASHING(Biblioteca) + MemoriaLista(Requisitantes) + MemoriaLista(Requisicoes) + MemoriaLista(Freguesias) + MemoriaLista(Concelhos) + MemoriaLista(Distritos));
             break;
         case 5:
-            char nome_xml[20], diretorio[15];
-            
+            char nome_xml[50], diretorio[100];
+
             strcpy(diretorio, dir);
 
             printf("Indique o nome para o ficheiro xml: \n");
@@ -482,24 +493,26 @@ int main()
             printf("A gravar alterações...\t");
             GravarSessao(Biblioteca, Requisitantes, Distritos, Concelhos, Freguesias, Requisicoes);
             printf("Alterações gravadas.\n");
+
+            Sleep(1);
             break;
-        case 0: MenuP = false;
+        case 0: 
+            //Gravar informação ao sair
+            printf("A gravar sessão...\t");
+            GravarSessao(Biblioteca, Requisitantes, Distritos, Concelhos, Freguesias, Requisicoes);
+            printf("Sessão gravada.\n");
+
+            //Libertar estruturas
+            printf("A limpar memória...\t");
+            DestruirLISTA(Distritos, DestruirDISTRITO);
+            DestruirLISTA(Concelhos, DestruirCONCELHO);
+            DestruirLISTA(Freguesias, DestruirFREGUESIA);
+            DestruirLISTA(Requisicoes, DestruirREQUISICAO);
+            DestruirLISTA(Requisitantes, DestruirREQUISITANTE);
+            DestruirHASHING(Biblioteca);
+            printf("Memória limpa.\n");
+            MenuP = false;
         }
     }
-    //Gravar informação ao sair
-    printf("A gravar sessão...\t");
-    GravarSessao(Biblioteca, Requisitantes, Distritos, Concelhos, Freguesias, Requisicoes);
-    printf("Sessão gravada.\n");
-
-    //Libertar estruturas
-    printf("A limpar memória...\t");
-    DestruirLISTA(Distritos, DestruirDISTRITO);
-    DestruirLISTA(Concelhos, DestruirCONCELHO);
-    DestruirLISTA(Freguesias, DestruirFREGUESIA);
-    DestruirLISTA(Requisicoes, DestruirREQUISICAO);
-    DestruirLISTA(Requisitantes, DestruirREQUISITANTE);
-    DestruirHASHING(Biblioteca);
-    printf("Memória limpa.\n");
-    //}
     return 0;
 }

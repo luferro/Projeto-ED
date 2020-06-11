@@ -35,7 +35,7 @@ void MostrarConcelho(void* P)
 void GravarConcelho(void* P, FILE* F)
 {
     CONCELHO* X = (CONCELHO*)P;
-    fprintf(F, "\t\t\tCONCELHO: %s\t%s\t%s\n", X->ID_CONCELHO, X->ID_DISTRITO, X->NOME_CONCELHO);
+    fprintf(F, "\t\tCONCELHO: %s\t%s\t%s\n", X->ID_CONCELHO, X->ID_DISTRITO, X->NOME_CONCELHO);
 }
 //-------------------------------
 void GravarConcelho_Sessao(void* P, FILE* F)

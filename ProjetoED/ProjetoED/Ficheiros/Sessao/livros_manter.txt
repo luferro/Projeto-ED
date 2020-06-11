@@ -1,120 +1,61 @@
-20180136;INF;Mobile design pattern gallery;MARKA;20/out/17;0;Disponivel
-
-20180054;INF;Sistemas de retículas = Sistemas de grelhas;Livraria José Alves;20/out/17;0;Disponivel
-
-20182991;INF;HTML and CSS;MARKA;20/out/17;1;Requisitado
-
-20180847;INF;Developing quality technical information;MARKA;20/out/17;0;Disponivel
-
-20180016;INF;JavaScript and jQuery;MARKA;20/out/17;0;Disponivel
-
-20180140;INF;Learning PHP, MySQL & JavaScript;MARKA;20/out/17;0;Disponivel
-
-20180055;INF;C# and .NET Core: Modern cross-platform development;MARKA;20/out/17;0;Disponivel
-
-20182988;INF;Responsive web design with HTML5 and CSS3;MARKA;20/out/17;0;Disponivel
-
-20180350;INF;Graphic design : The new basics;MARKA;20/out/17;0;Disponivel
-
-20180129;INF;Graphic design school;MARKA;20/out/17;0;Disponivel
-
-20182989;INF;The book of CSS3;MARKA;20/out/17;0;Disponivel
-
-20181596;INF;PHP and MySQL for dynamic web sites;MARKA;20/out/17;0;Disponivel
-
-20181647;INF;Designing brand identity;MARKA;20/out/17;0;Disponivel
-
-20181910;GES;Logística e gestão da cadeia de abastecimento;Livraria José Alves;16/nov/17;0;Disponivel
-
-20181911;GES;Logística e gestão da cadeia de abastecimento;Livraria José Alves;16/nov/17;0;Disponivel
-
-20183165;GES;Guia da arbitragem tributária;Pretexto;09/mar/18;0;Disponivel
-
-20183166;GES;Guia da arbitragem tributária;Pretexto;09/mar/18;0;Disponivel
-
-20183167;GES;Títulos de crédito;Pretexto;09/mar/18;0;Disponivel
-
-20183168;GES;Títulos de crédito;Pretexto;09/mar/18;0;Disponivel
-
-20183173;GES;Contabilidade financeira;Rei dos livros;23/mar/18;1;Requisitado
-
-20183174;GES;Contabilidade financeira;Rei dos livros;23/mar/18;1;Requisitado
-
-20183175;GES;Contabilidade financeira;Rei dos livros;23/mar/18;1;Requisitado
-
-20183176;GES;Contabilidade financeira;Rei dos livros;23/mar/18;1;Requisitado
-
-20183252;GES;Visual merchandising;Livraria José Alves;01/mar/18;0;Disponivel
-
-20183413;GES;Retail management;MARKA;01/mar/18;0;Disponivel
-
-20183427;GES;Digital marketing;Marka;15/nov/17;0;Disponivel
-
-20183428;GES;Digital marketing;Marka;15/nov/17;0;Disponivel
-
-20183425;GES;Direito das sociedades comerciais;LEYA;10/mai/18;0;Disponivel
-
-20183426;GES;Direito das sociedades comerciais;LEYA;10/mai/18;0;Disponivel
-
-20183430;GES;Código da insolvência e da recuperação de empresas;LEYA;10/mai/18;0;Disponivel
-
-20183431;GES;Código da insolvência e da recuperação de empresas;LEYA;10/mai/18;0;Disponivel
-
-20183432;GES;Código da insolvência e da recuperação de empresas;LEYA;10/mai/18;0;Disponivel
-
-20183437;GES;Código das sociedades comerciais;LEYA;10/mai/18;0;Disponivel
-
-20183441;GES;Minutas e formulários;LEYA;10/mai/18;0;Disponivel
-
-20183442;GES;Minutas e formulários;LEYA;10/mai/18;0;Disponivel
-
-20183448;GES;Curso de direito comercial: Vol. II: Das sociedades;LEYA;10/mai/18;0;Disponivel
-
-20183450;GES;Direito comercial: Direito da empresa;LEYA;10/mai/18;0;Disponivel
-
-20183602;GES;Visual merchandising;Livraria José Alves;01/mar/18;0;Disponivel
-
-20200001;GES;Isto e um titulo;Isto e um autor;31/mai/20;0;Disponivel
-
-20182033;BIB;Mecânica dos materiais;Livraria José Alves;05/jan/18;0;Disponivel
-
-20183093;BIB;CDU - Clasificación Decimal Universal: 1;Livraria Ideal;15/fev/18;0;Disponivel
-
-20183094;BIB;CDU - Clasificación Decimal Universal:2;Livraria Ideal;15/fev/18;0;Disponivel
-
-20183095;BIB;CDU - Clasificación Decimal Universal:3;Livraria Ideal;15/fev/18;0;Disponivel
-
-20183013;CIV;Gestão da manutenção de equipamentos, instalações e edifícios;lidel;15/fev/18;0;Disponivel
-
-20183098;CIV;Reabilitação acústica;Livraria José Alves, Ltd.;06/fev/18;0;Disponivel
-
-20183109;CIV;OpenGL programming guide;MARKA;06/fev/18;0;Disponivel
-
-20183110;CIV;OpenGL 4 shading language cookbook;MARKA;06/fev/18;0;Disponivel
-
-20183108;CIV;OpenGL SuperBible;MARKA;06/fev/18;0;Disponivel
-
-20183121;CIV;Applied building physics;MARKA;06/fev/18;0;Disponivel
-
-20183169;MEC;Mecânica dos fluidos;Pretexto;01/mar/18;0;Disponivel
-
-20183170;MEC;Mecânica dos fluidos;Pretexto;01/mar/18;0;Disponivel
-
-20183193;MEC;Apoio à decisão em manutenção na gestão de ativos físicos;Pretexto;20/abr/18;0;Disponivel
-
-20183194;MEC;Apoio à decisão em manutenção na gestão de ativos físicos;Pretexto;20/abr/18;0;Disponivel
-
-20183198;MEC;Organização e gestão da manutenção;Pretexto;20/abr/18;0;Disponivel
-
-20183199;MEC;Organização e gestão da manutenção;Pretexto;20/abr/18;0;Disponivel
-
-20183180;MEC;Pensamento Lean;Pretexto;20/abr/18;0;Disponivel
-
-20183418;MEC;Guia de aplicações de gestão de energia e eficiência energética;Publindústria;01/mar/18;0;Disponivel
-
-20183601;AMB;Handbook of applied hydrology;Livraria José Alves;25/mai/18;0;Disponivel
-
-20183604;AMB;Getting to know ArcGIS;Livraria José Alves;25/mai/18;0;Disponivel
-
 20183603;AMB;Environmental hydrology;Livraria José Alves;25/mai/18;0;Disponivel
-
+20183604;AMB;Getting to know ArcGIS;Livraria José Alves;25/mai/18;0;Disponivel
+20183601;AMB;Handbook of applied hydrology;Livraria José Alves;25/mai/18;0;Disponivel
+20183418;MEC;Guia de aplicações de gestão de energia e eficiência energética;Publindústria;01/mar/18;0;Disponivel
+20183180;MEC;Pensamento Lean;Pretexto;20/abr/18;0;Disponivel
+20183199;MEC;Organização e gestão da manutenção;Pretexto;20/abr/18;0;Disponivel
+20183198;MEC;Organização e gestão da manutenção;Pretexto;20/abr/18;0;Disponivel
+20183194;MEC;Apoio à decisão em manutenção na gestão de ativos físicos;Pretexto;20/abr/18;0;Disponivel
+20183193;MEC;Apoio à decisão em manutenção na gestão de ativos físicos;Pretexto;20/abr/18;0;Disponivel
+20183170;MEC;Mecânica dos fluidos;Pretexto;01/mar/18;0;Disponivel
+20183169;MEC;Mecânica dos fluidos;Pretexto;01/mar/18;0;Disponivel
+20183121;CIV;Applied building physics;MARKA;06/fev/18;0;Disponivel
+20183108;CIV;OpenGL SuperBible;MARKA;06/fev/18;0;Disponivel
+20183110;CIV;OpenGL 4 shading language cookbook;MARKA;06/fev/18;0;Disponivel
+20183109;CIV;OpenGL programming guide;MARKA;06/fev/18;0;Disponivel
+20183098;CIV;Reabilitação acústica;Livraria José Alves, Ltd.;06/fev/18;0;Disponivel
+20183103;CIV;Indoor climate quality assessment;Livraria José Alves, Ltd.;06/fev/18;0;Disponivel
+20183013;CIV;Gestão da manutenção de equipamentos, instalações e edifícios;lidel;15/fev/18;0;Disponivel
+20183095;BIB;CDU - Clasificación Decimal Universal:3;Livraria Ideal;15/fev/18;0;Disponivel
+20183094;BIB;CDU - Clasificación Decimal Universal:2;Livraria Ideal;15/fev/18;0;Disponivel
+20183093;BIB;CDU - Clasificación Decimal Universal: 1;Livraria Ideal;15/fev/18;0;Disponivel
+20182033;BIB;Mecânica dos materiais;Livraria José Alves;05/jan/18;0;Disponivel
+20200001;GES;Teste Livro Titulo;Teste Livro Autor;07/mai/20;0;Disponivel
+20183602;GES;Visual merchandising;Livraria José Alves;01/mar/18;0;Disponivel
+20183450;GES;Direito comercial: Direito da empresa;LEYA;10/mai/18;0;Disponivel
+20183448;GES;Curso de direito comercial: Vol. II: Das sociedades;LEYA;10/mai/18;0;Disponivel
+20183442;GES;Minutas e formulários;LEYA;10/mai/18;0;Disponivel
+20183441;GES;Minutas e formulários;LEYA;10/mai/18;0;Disponivel
+20183437;GES;Código das sociedades comerciais;LEYA;10/mai/18;0;Disponivel
+20183432;GES;Código da insolvência e da recuperação de empresas;LEYA;10/mai/18;0;Disponivel
+20183431;GES;Código da insolvência e da recuperação de empresas;LEYA;10/mai/18;0;Disponivel
+20183430;GES;Código da insolvência e da recuperação de empresas;LEYA;10/mai/18;0;Disponivel
+20183426;GES;Direito das sociedades comerciais;LEYA;10/mai/18;0;Disponivel
+20183425;GES;Direito das sociedades comerciais;LEYA;10/mai/18;0;Disponivel
+20183428;GES;Digital marketing;Marka;15/nov/17;0;Disponivel
+20183427;GES;Digital marketing;Marka;15/nov/17;0;Disponivel
+20183413;GES;Retail management;MARKA;01/mar/18;0;Disponivel
+20183252;GES;Visual merchandising;Livraria José Alves;01/mar/18;0;Disponivel
+20183176;GES;Contabilidade financeira;Rei dos livros;23/mar/18;0;Disponivel
+20183175;GES;Contabilidade financeira;Rei dos livros;23/mar/18;0;Disponivel
+20183174;GES;Contabilidade financeira;Rei dos livros;23/mar/18;0;Disponivel
+20183173;GES;Contabilidade financeira;Rei dos livros;23/mar/18;0;Disponivel
+20183168;GES;Títulos de crédito;Pretexto;09/mar/18;0;Disponivel
+20183167;GES;Títulos de crédito;Pretexto;09/mar/18;0;Disponivel
+20183166;GES;Guia da arbitragem tributária;Pretexto;09/mar/18;0;Disponivel
+20183165;GES;Guia da arbitragem tributária;Pretexto;09/mar/18;0;Disponivel
+20181911;GES;Logística e gestão da cadeia de abastecimento;Livraria José Alves;16/nov/17;0;Disponivel
+20181910;GES;Logística e gestão da cadeia de abastecimento;Livraria José Alves;16/nov/17;0;Disponivel
+20181647;INF;Designing brand identity;MARKA;20/out/17;0;Disponivel
+20181596;INF;PHP and MySQL for dynamic web sites;MARKA;20/out/17;0;Disponivel
+20182989;INF;The book of CSS3;MARKA;20/out/17;0;Disponivel
+20180129;INF;Graphic design school;MARKA;20/out/17;0;Disponivel
+20180350;INF;Graphic design : The new basics;MARKA;20/out/17;0;Disponivel
+20182988;INF;Responsive web design with HTML5 and CSS3;MARKA;20/out/17;0;Disponivel
+20180055;INF;C# and .NET Core: Modern cross-platform development;MARKA;20/out/17;0;Disponivel
+20180140;INF;Learning PHP, MySQL & JavaScript;MARKA;20/out/17;0;Disponivel
+20180016;INF;JavaScript and jQuery;MARKA;20/out/17;0;Disponivel
+20180847;INF;Developing quality technical information;MARKA;20/out/17;0;Disponivel
+20182991;INF;HTML and CSS;MARKA;20/out/17;1;Requisitado
+20180054;INF;Sistemas de retículas = Sistemas de grelhas;Livraria José Alves;20/out/17;0;Disponivel
+20180136;INF;Mobile design pattern gallery;MARKA;20/out/17;0;Disponivel

@@ -1,11 +1,10 @@
 #include "Requisicao.h"
 
-REQUISICAO* CriarRequisicao(int id_requisicao, int id_requisitante, int id_livro)
+REQUISICAO* CriarRequisicao(int id_requisitante, int id_livro)
 {
     REQUISICAO* X = (REQUISICAO*)malloc(sizeof(REQUISICAO));
     if (!X) return NULL;
 
-    X->ID_REQUISICAO = id_requisicao;
     X->ID_REQUISITANTE = id_requisitante;
     X->ID_LIVRO = id_livro;
     
@@ -15,19 +14,21 @@ REQUISICAO* CriarRequisicao(int id_requisicao, int id_requisitante, int id_livro
 void MostrarRequisicoesID(void* P)
 {
     REQUISICAO* X = (REQUISICAO*)P;
-    printf("REQUISICAO (%d, %d, %d)\n", X->ID_REQUISICAO, X->ID_LIVRO, X->ID_REQUISITANTE);
+    printf("REQUISICAO: %d\t%d\n", X->ID_LIVRO, X->ID_REQUISITANTE);
 }
 //---------------------------------
 void GravarRequisicoes(void* P, FILE* F)
 {
     REQUISICAO* X = (REQUISICAO*)P;
-    fprintf(F, "\t\t\tREQUISICAO (%d, %d, %d)\n", X->ID_REQUISICAO, X->ID_LIVRO, X->ID_REQUISITANTE);
+    if(X->ID_LIVRO != 0 && X->ID_REQUISITANTE != 0)
+        fprintf(F, "\t\tREQUISICAO: %d\t%d\n", X->ID_LIVRO, X->ID_REQUISITANTE);
 }
 //---------------------------------
 void GravarRequisicoes_Sessao(void* P, FILE* F)
 {
     REQUISICAO* X = (REQUISICAO*)P;
-    fprintf(F, "%d\t%d\t%d\n", X->ID_REQUISICAO, X->ID_LIVRO, X->ID_REQUISITANTE);
+    if (X->ID_LIVRO != 0 && X->ID_REQUISITANTE != 0)
+        fprintf(F, "%d\t%d\n", X->ID_LIVRO, X->ID_REQUISITANTE);
 }
 //---------------------------------
 int GetIDRequisitante(void* P, int parametro)
@@ -61,7 +62,7 @@ void RemoverRequisicao(void* P, int parametro)
     
     //Compara o id_livro com o parametro de entrada
     if (X->ID_LIVRO == parametro) { 
-        free(X);    //Se encontrar, liberta a requisição referente a esse livro permitindo que este seja novamente requisitado
+        X->ID_LIVRO = 0; X->ID_REQUISITANTE = 0;    //Se encontrar, liberta a requisição referente a esse livro permitindo que este seja novamente requisitado
     }
 }
 //-------------------------------

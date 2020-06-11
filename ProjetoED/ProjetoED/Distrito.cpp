@@ -23,7 +23,7 @@ void MostrarDistrito(void* P)
 void GravarDistrito(void* P, FILE* F)
 {
     DISTRITO* X = (DISTRITO*)P;
-    fprintf(F, "\t\t\tDISTRITO: %s\t%s\n", X->ID_DISTRITO, X->NOME_DISTRITO);
+    fprintf(F, "\t\tDISTRITO: %s\t%s\n", X->ID_DISTRITO, X->NOME_DISTRITO);
 }
 //-------------------------------
 void GravarDistrito_Sessao(void* P, FILE* F)

@@ -5,7 +5,6 @@
 
 typedef struct
 {
-    int ID_REQUISICAO;
     int ID_REQUISITANTE;
     int ID_LIVRO;
 }REQUISICAO;
